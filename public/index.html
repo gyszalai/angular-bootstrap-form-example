@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular-Bootstrap form example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap-responsive.min.css">
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <!-- Navbar padding fix for responsive design -->
+    <style type="text/css">
+        @media (min-width: 979px) {
+            body {
+                padding-top: 60px;
+            }
+        }
+    </style>
+
+</head>
+<body ng-app="MyApp">
+    <nav>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand">MyApplication</a>
+
+                    <div class="pull-left nav-collapse collapse">
+                        <ul class="nav">
+                            <li class><a href="#MenuItem1">Menu item 1</a></li>
+                            <li class><a href="#MenuItem2">Menu item 2</a></li>
+                            <li class="active"><a href="#RegisterTrainer">Register trainer</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Services
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="#">My profile</a></li>
+                                    <li><a href="#">Help</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </nav>
+
+        <div class="container-fluid" >
+            <div class="row-fluid">
+                <div class="span2 well">
+                    <!--<label>User:&nbsp;</label><span>Kovács József</span>-->
+                    <!--<label>Trainer:&nbsp;</label><span>Edző Károly</span>-->
+                </div>
+
+                <div class="span10 top-block1">
+                    <div class="well" ng-controller="RegisterTrainerController">
+                        <fieldset>
+                            <legend>Register trainer</legend>
+
+                            <div class="control-group">
+
+                                <label>Trainer ID</label>
+                                <input type="text" disabled class="span3" ng-model="trainer._id">
+
+                                <label>Trainer name</label>
+                                <input type="text" class="span3" placeholder="" ng-model="trainer.name">
+
+                                <label>Phone number</label>
+                                <input type="text" class="span3" placeholder="+36-99-111-1111" ng-model="trainer.phone">
+
+                                <label>Sports</label>
+                                <select class="span3" multiple="multiple" ng-model="trainer.sports">
+                                    <option><i class="icon-search"></i>Running</option>
+                                    <option>Swimming</option>
+                                    <option>Biking</option>
+                                </select>
+                                <br>
+                                <button ng-click="registerClick()" type="submit" class="btn btn-primary"><i class="icon-user icon-white"></i> Register</button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+</html>
